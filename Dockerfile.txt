@@ -1,0 +1,23 @@
+# Use the official Ubuntu image
+FROM ubuntu
+
+# Set working directory
+WORKDIR /opt
+
+# Update package lists and install dependencies
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
+
+# Create a virtual environment
+RUN python3 -m venv venv
+
+# Activate the virtual environment and install Flask
+RUN /opt/venv/bin/pip install --upgrade pip && /opt/venv/bin/pip install flask
+
+# Copy the application file
+COPY app.py /opt/app.py
+
+# Expose the Flask port
+EXPOSE 5000
+
+# Set the default command to run Flask
+CMD ["/opt/venv/bin/python", "-m", "flask", "run", "--host=0.0.0.0"]
