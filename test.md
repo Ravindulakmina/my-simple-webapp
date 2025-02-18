@@ -59,29 +59,27 @@ nano Dockerfile
 docker build .
 ```
 
-     ```bash
-
+```bash
 docker build . -t my-simple-webapp
 
 ````
 
-     ```bash
+```bash
 docker images
 ````
 
-       ```bash
-
+```bash
 docker images
-
 ```
 
-```
 ```bash
  docker run -p 5000:5000 my-simple-webapp
 ```
 
 Push docker image
+```bash
 docker login
 docker build . -t ravindulakmina/my-simple-webapp
- docker images
+docker images
 docker push ravindulakmina/my-simple-webapp
+```
